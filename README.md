@@ -1,5 +1,5 @@
 # -3-Rev1.3
-markdown
+
 [[DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19348317.svg)](https://doi.org/10.5281/zenodo.19348317)
 
 🚀 온디바이스(On-Device) DSM 시스템
