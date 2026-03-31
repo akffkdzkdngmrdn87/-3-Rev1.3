@@ -1,6 +1,6 @@
 # -3-Rev1.3
 ```markdown
-[이 자리에 나중에 제노도 DOI 배지 코드를 붙여넣으시라요!]
+https://doi.org/10.5281/zenodo.19348317
 
 # 🚀 온디바이스(On-Device) DSM 시스템
 ** 개발자: j2w **
