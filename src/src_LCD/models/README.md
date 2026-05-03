@@ -26,6 +26,8 @@
 *   **데이터 출처:** [AI Hub - 졸음운전 데이터셋](https://aihub.or.kr/aihubdata/data/view.do?srchOptnCnd=OPTNCND001&currMenu=115&topMenu=100&searchKeyword=%EC%A1%B8%EC%9D%8C%EC%9A%B4%EC%A0%84&aihubDataSe=data&dataSetSn=173)
 *   **활용 내역:** 한국인 운전자의 실제 주행 환경 및 조명 변화가 반영된 데이터를 선별 추출하여, 모델의 실전 인식률(Robustness)과 일반화 성능을 극대화하는 데 사용하였습니다.
 
+추가로 작업자 본인이 직접 찍은 EAR 이미지 파일(.jpeg) 5천장, MAR 이미지 파일(.jpeg) 5천장 등도 적용을 했습니다.
+
 ---
 
 ## 3. 모델 경량화 및 최적화 메커니즘 (Edge Optimization Process)
