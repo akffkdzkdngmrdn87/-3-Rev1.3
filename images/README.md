@@ -135,7 +135,7 @@ ARM Cortex-A53 기반 1GB RAM의 한정된 자원 내에서 효율적인 시각 
 </div>
 
 ### 7.2. 하드웨어 자원 점유율 및 발열 제어 검증 (Resource Monitoring)
-아래의 시스템 모니터링 로그는 고강도 융합 연산 중에도 1GB RAM 환경에서 CPU 30~45%, RAM 40% 대의 점유율을 안정적으로 유지하며, 55~56°C의 온도로 발열 제어(Thermal Throttling 억제)에 성공했음을 나타냅니다.
+아래의 시스템 모니터링 로그는 고강도 융합 연산 중에도 1GB RAM 환경에서 CPU 30-45%, RAM 40% 대의 점유율을 안정적으로 유지하며, 55-56°C의 온도로 발열 제어(Thermal Throttling 억제)에 성공했음을 나타냅니다.
 
 <div align="center">
   <img src="metrics/실행직후.png" width="45%" alt="Boot Resource">
