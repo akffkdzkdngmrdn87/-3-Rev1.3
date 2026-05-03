@@ -90,10 +90,9 @@ RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
+```
 
-
-#
-#
+```
 # src_LCD/dsm_commander_lcd.py (이스터에그 강제 종료 로직 발췌)
 import os
 
@@ -126,8 +125,6 @@ if discrete_action != prev_discrete_action:
             easter_egg_current = []
 
 ```
-#
-#
 🖥️ 실전 엣지 성능 검증 요약 (Performance Verification)
 본 시스템 내부에 탑재된 AI 로직은 실제 운전자 시점의 가혹 환경에서 완벽하게 작동함을 사전 검증 완료했습니다.
 
