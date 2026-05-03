@@ -1,0 +1,142 @@
+7767517
+140 156
+Input            input                    0 1 input
+MemoryData       val_589                  0 1 val_589 0=2
+Convolution      node_Conv_753            1 1 input getitem 0=64 2=1 12=1 3=2 13=2 4=3 14=3 15=3 16=3 5=1 6=9408
+ReLU             node_relu                1 1 getitem relu
+Pooling          node_max_pool2d          1 1 relu max_pool2d 0=0 1=3 11=3 2=2 12=2 3=1 13=1 14=1 15=1 5=1
+Split            splitncnn_0              1 2 max_pool2d max_pool2d_splitncnn_0 max_pool2d_splitncnn_1
+Convolution      node_Conv_755            1 1 max_pool2d_splitncnn_1 getitem_3 0=64 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=4096
+ReLU             node_relu_1              1 1 getitem_3 relu_1
+Convolution      node_Conv_757            1 1 relu_1 getitem_6 0=64 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=36864
+ReLU             node_relu_2              1 1 getitem_6 relu_2
+Convolution      node_Conv_759            1 1 relu_2 getitem_9 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384
+Convolution      node_Conv_761            1 1 max_pool2d_splitncnn_0 getitem_12 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384
+BinaryOp         node_add                 2 1 getitem_9 getitem_12 add 0=0
+ReLU             node_relu_3              1 1 add relu_3
+Split            splitncnn_1              1 2 relu_3 relu_3_splitncnn_0 relu_3_splitncnn_1
+Convolution      node_Conv_763            1 1 relu_3_splitncnn_1 getitem_15 0=64 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384
+ReLU             node_relu_4              1 1 getitem_15 relu_4
+Convolution      node_Conv_765            1 1 relu_4 getitem_18 0=64 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=36864
+ReLU             node_relu_5              1 1 getitem_18 relu_5
+Convolution      node_Conv_767            1 1 relu_5 getitem_21 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384
+BinaryOp         node_add_1               2 1 getitem_21 relu_3_splitncnn_0 add_1 0=0
+ReLU             node_relu_6              1 1 add_1 relu_6
+Split            splitncnn_2              1 2 relu_6 relu_6_splitncnn_0 relu_6_splitncnn_1
+Convolution      node_Conv_769            1 1 relu_6_splitncnn_1 getitem_24 0=64 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384
+ReLU             node_relu_7              1 1 getitem_24 relu_7
+Convolution      node_Conv_771            1 1 relu_7 getitem_27 0=64 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=36864
+ReLU             node_relu_8              1 1 getitem_27 relu_8
+Convolution      node_Conv_773            1 1 relu_8 getitem_30 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384
+BinaryOp         node_add_2               2 1 getitem_30 relu_6_splitncnn_0 add_2 0=0
+ReLU             node_relu_9              1 1 add_2 relu_9
+Split            splitncnn_3              1 2 relu_9 relu_9_splitncnn_0 relu_9_splitncnn_1
+Convolution      node_Conv_775            1 1 relu_9_splitncnn_1 getitem_33 0=128 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=32768
+ReLU             node_relu_10             1 1 getitem_33 relu_10
+Convolution      node_Conv_777            1 1 relu_10 getitem_36 0=128 2=1 12=1 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=147456
+ReLU             node_relu_11             1 1 getitem_36 relu_11
+Convolution      node_Conv_779            1 1 relu_11 getitem_39 0=512 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536
+Convolution      node_Conv_781            1 1 relu_9_splitncnn_0 getitem_42 0=512 2=1 12=1 3=2 13=2 4=0 14=0 15=0 16=0 5=1 6=131072
+BinaryOp         node_add_3               2 1 getitem_39 getitem_42 add_3 0=0
+ReLU             node_relu_12             1 1 add_3 relu_12
+Split            splitncnn_4              1 2 relu_12 relu_12_splitncnn_0 relu_12_splitncnn_1
+Convolution      node_Conv_783            1 1 relu_12_splitncnn_1 getitem_45 0=128 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536
+ReLU             node_relu_13             1 1 getitem_45 relu_13
+Convolution      node_Conv_785            1 1 relu_13 getitem_48 0=128 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=147456
+ReLU             node_relu_14             1 1 getitem_48 relu_14
+Convolution      node_Conv_787            1 1 relu_14 getitem_51 0=512 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536
+BinaryOp         node_add_4               2 1 getitem_51 relu_12_splitncnn_0 add_4 0=0
+ReLU             node_relu_15             1 1 add_4 relu_15
+Split            splitncnn_5              1 2 relu_15 relu_15_splitncnn_0 relu_15_splitncnn_1
+Convolution      node_Conv_789            1 1 relu_15_splitncnn_1 getitem_54 0=128 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536
+ReLU             node_relu_16             1 1 getitem_54 relu_16
+Convolution      node_Conv_791            1 1 relu_16 getitem_57 0=128 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=147456
+ReLU             node_relu_17             1 1 getitem_57 relu_17
+Convolution      node_Conv_793            1 1 relu_17 getitem_60 0=512 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536
+BinaryOp         node_add_5               2 1 getitem_60 relu_15_splitncnn_0 add_5 0=0
+ReLU             node_relu_18             1 1 add_5 relu_18
+Split            splitncnn_6              1 2 relu_18 relu_18_splitncnn_0 relu_18_splitncnn_1
+Convolution      node_Conv_795            1 1 relu_18_splitncnn_1 getitem_63 0=128 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536
+ReLU             node_relu_19             1 1 getitem_63 relu_19
+Convolution      node_Conv_797            1 1 relu_19 getitem_66 0=128 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=147456
+ReLU             node_relu_20             1 1 getitem_66 relu_20
+Convolution      node_Conv_799            1 1 relu_20 getitem_69 0=512 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536
+BinaryOp         node_add_6               2 1 getitem_69 relu_18_splitncnn_0 add_6 0=0
+ReLU             node_relu_21             1 1 add_6 relu_21
+Split            splitncnn_7              1 2 relu_21 relu_21_splitncnn_0 relu_21_splitncnn_1
+Convolution      node_Conv_801            1 1 relu_21_splitncnn_1 getitem_72 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=131072
+ReLU             node_relu_22             1 1 getitem_72 relu_22
+Convolution      node_Conv_803            1 1 relu_22 getitem_75 0=256 2=1 12=1 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=589824
+ReLU             node_relu_23             1 1 getitem_75 relu_23
+Convolution      node_Conv_805            1 1 relu_23 getitem_78 0=1024 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+Convolution      node_Conv_807            1 1 relu_21_splitncnn_0 getitem_81 0=1024 2=1 12=1 3=2 13=2 4=0 14=0 15=0 16=0 5=1 6=524288
+BinaryOp         node_add_7               2 1 getitem_78 getitem_81 add_7 0=0
+ReLU             node_relu_24             1 1 add_7 relu_24
+Split            splitncnn_8              1 2 relu_24 relu_24_splitncnn_0 relu_24_splitncnn_1
+Convolution      node_Conv_809            1 1 relu_24_splitncnn_1 getitem_84 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+ReLU             node_relu_25             1 1 getitem_84 relu_25
+Convolution      node_Conv_811            1 1 relu_25 getitem_87 0=256 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=589824
+ReLU             node_relu_26             1 1 getitem_87 relu_26
+Convolution      node_Conv_813            1 1 relu_26 getitem_90 0=1024 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+BinaryOp         node_add_8               2 1 getitem_90 relu_24_splitncnn_0 add_8 0=0
+ReLU             node_relu_27             1 1 add_8 relu_27
+Split            splitncnn_9              1 2 relu_27 relu_27_splitncnn_0 relu_27_splitncnn_1
+Convolution      node_Conv_815            1 1 relu_27_splitncnn_1 getitem_93 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+ReLU             node_relu_28             1 1 getitem_93 relu_28
+Convolution      node_Conv_817            1 1 relu_28 getitem_96 0=256 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=589824
+ReLU             node_relu_29             1 1 getitem_96 relu_29
+Convolution      node_Conv_819            1 1 relu_29 getitem_99 0=1024 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+BinaryOp         node_add_9               2 1 getitem_99 relu_27_splitncnn_0 add_9 0=0
+ReLU             node_relu_30             1 1 add_9 relu_30
+Split            splitncnn_10             1 2 relu_30 relu_30_splitncnn_0 relu_30_splitncnn_1
+Convolution      node_Conv_821            1 1 relu_30_splitncnn_1 getitem_102 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+ReLU             node_relu_31             1 1 getitem_102 relu_31
+Convolution      node_Conv_823            1 1 relu_31 getitem_105 0=256 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=589824
+ReLU             node_relu_32             1 1 getitem_105 relu_32
+Convolution      node_Conv_825            1 1 relu_32 getitem_108 0=1024 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+BinaryOp         node_add_10              2 1 getitem_108 relu_30_splitncnn_0 add_10 0=0
+ReLU             node_relu_33             1 1 add_10 relu_33
+Split            splitncnn_11             1 2 relu_33 relu_33_splitncnn_0 relu_33_splitncnn_1
+Convolution      node_Conv_827            1 1 relu_33_splitncnn_1 getitem_111 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+ReLU             node_relu_34             1 1 getitem_111 relu_34
+Convolution      node_Conv_829            1 1 relu_34 getitem_114 0=256 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=589824
+ReLU             node_relu_35             1 1 getitem_114 relu_35
+Convolution      node_Conv_831            1 1 relu_35 getitem_117 0=1024 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+BinaryOp         node_add_11              2 1 getitem_117 relu_33_splitncnn_0 add_11 0=0
+ReLU             node_relu_36             1 1 add_11 relu_36
+Split            splitncnn_12             1 2 relu_36 relu_36_splitncnn_0 relu_36_splitncnn_1
+Convolution      node_Conv_833            1 1 relu_36_splitncnn_1 getitem_120 0=256 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+ReLU             node_relu_37             1 1 getitem_120 relu_37
+Convolution      node_Conv_835            1 1 relu_37 getitem_123 0=256 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=589824
+ReLU             node_relu_38             1 1 getitem_123 relu_38
+Convolution      node_Conv_837            1 1 relu_38 getitem_126 0=1024 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=262144
+BinaryOp         node_add_12              2 1 getitem_126 relu_36_splitncnn_0 add_12 0=0
+ReLU             node_relu_39             1 1 add_12 relu_39
+Split            splitncnn_13             1 2 relu_39 relu_39_splitncnn_0 relu_39_splitncnn_1
+Convolution      node_Conv_839            1 1 relu_39_splitncnn_1 getitem_129 0=512 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=524288
+ReLU             node_relu_40             1 1 getitem_129 relu_40
+Convolution      node_Conv_841            1 1 relu_40 getitem_132 0=512 2=1 12=1 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=2359296
+ReLU             node_relu_41             1 1 getitem_132 relu_41
+Convolution      node_Conv_843            1 1 relu_41 getitem_135 0=2048 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1048576
+Convolution      node_Conv_845            1 1 relu_39_splitncnn_0 getitem_138 0=2048 2=1 12=1 3=2 13=2 4=0 14=0 15=0 16=0 5=1 6=2097152
+BinaryOp         node_add_13              2 1 getitem_135 getitem_138 add_13 0=0
+ReLU             node_relu_42             1 1 add_13 relu_42
+Split            splitncnn_14             1 2 relu_42 relu_42_splitncnn_0 relu_42_splitncnn_1
+Convolution      node_Conv_847            1 1 relu_42_splitncnn_1 getitem_141 0=512 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1048576
+ReLU             node_relu_43             1 1 getitem_141 relu_43
+Convolution      node_Conv_849            1 1 relu_43 getitem_144 0=512 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2359296
+ReLU             node_relu_44             1 1 getitem_144 relu_44
+Convolution      node_Conv_851            1 1 relu_44 getitem_147 0=2048 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1048576
+BinaryOp         node_add_14              2 1 getitem_147 relu_42_splitncnn_0 add_14 0=0
+ReLU             node_relu_45             1 1 add_14 relu_45
+Split            splitncnn_15             1 2 relu_45 relu_45_splitncnn_0 relu_45_splitncnn_1
+Convolution      node_Conv_853            1 1 relu_45_splitncnn_1 getitem_150 0=512 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1048576
+ReLU             node_relu_46             1 1 getitem_150 relu_46
+Convolution      node_Conv_855            1 1 relu_46 getitem_153 0=512 2=1 12=1 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2359296
+ReLU             node_relu_47             1 1 getitem_153 relu_47
+Convolution      node_Conv_857            1 1 relu_47 getitem_156 0=2048 2=1 12=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1048576
+BinaryOp         node_add_15              2 1 getitem_156 relu_45_splitncnn_0 add_15 0=0
+ReLU             node_relu_48             1 1 add_15 relu_48
+Reduction        node_mean                2 1 relu_48 val_589 mean 0=3 1=1 4=1 5=1
+Reshape          node_view                1 1 mean view 0=2048
+InnerProduct     node_linear              1 1 view output 0=5 1=1 2=10240
