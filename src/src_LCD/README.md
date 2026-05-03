@@ -152,4 +152,4 @@ if discrete_action != prev_discrete_action:
 
 요약: 1GB RAM의 구형 보드와 53.5도 협각 카메라라는 악조건 속에서도, 딥러닝과 기하학적 수식의 하이브리드 결합을 통해 발생 가능한 모든 엣지 케이스(Edge Case)를 성공적으로 방어해 냈습니다.
 
-![LCD사진](image_0ae4de.jpg)
+<img src="image_0ae4de.jpg" width="80%">
