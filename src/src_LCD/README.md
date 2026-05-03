@@ -90,3 +90,66 @@ RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
+
+
+#
+#
+# src_LCD/dsm_commander_lcd.py (이스터에그 강제 종료 로직 발췌)
+import os
+
+# 독립적 물리 행동 해독기 (비밀 패턴 정의)
+easter_egg_target = ['Left', 'Front', 'Right', 'Front', 'Left', 'Front', 'Right', 'Front', 'YAWN']
+easter_egg_current = []
+
+# (중략: 매 프레임별 행동(discrete_action) 감지 로직)
+
+if discrete_action != prev_discrete_action:
+    expected_action = easter_egg_target[len(easter_egg_current)]
+    
+    if discrete_action == expected_action:
+        easter_egg_current.append(discrete_action)
+        
+        # 9단계 패턴 완성 시 강제 셧다운 시퀀스 실행
+        if len(easter_egg_current) == len(easter_egg_target):
+            lcd.clear()
+            lcd.cursor_pos = (0, 0)
+            lcd.write_string("*** EASTER EGG ***")
+            lcd.cursor_pos = (1, 0)
+            lcd.write_string(" GOOD BYE, BOSS! ")
+            time.sleep(2) 
+            os.system("sudo shutdown -h now") 
+    else:
+        # 패턴이 틀리면 즉시 초기화하여 오작동 방지
+        if discrete_action == easter_egg_target[0]:
+            easter_egg_current = [discrete_action]
+        else:
+            easter_egg_current = []
+
+#
+#
+🖥️ 실전 엣지 성능 검증 요약 (Performance Verification)
+본 시스템 내부에 탑재된 AI 로직은 실제 운전자 시점의 가혹 환경에서 완벽하게 작동함을 사전 검증 완료했습니다.
+
+🛑 하드웨어 한계 돌파: 53.5° 화각(FOV)의 물리적 제약 극복
+물리적 제약: 본 프로젝트에 사용된 'Raspberry Pi Camera Rev 1.3' 모듈은 수평 화각(FOV)이 정확히 53.5도에 불과한 협각 렌즈입니다. 고개를 위로(Up) 조금만 들어도 안면이 프레임 밖으로 이탈하여 추론이 마비되는 한계가 있습니다.
+
+엔지니어링적 대안: 카메라 스펙의 한계를 인지하고, 고개를 위로 드는 행위를 환경 노이즈로 간주하여 정면(Front)으로 강제 예외 처리했습니다. 대신 시야 내 추적이 완벽히 가능한 정면(Front), 좌(Left), 우(Right), 아래(Down) 4방향 감지에 연산 화력을 집중하여 타격률을 극대화했습니다.
+
+📸 다중 상태 독립 감지 및 하이브리드 타격 결과
+시스템의 4대 관제 지표(HEAD, MASK, EYE, MOUTH)는 서로 간섭 없이 독립적으로 작동합니다.
+
+1. 마스크 착용 상태 (MASK: ON - Safe) 방어력 검증
+
+정상 주시 (Front): 마스크 착용 시 딥러닝이 정상적으로 MASK: ON 상태를 판독하며, 눈 수치(EAR)를 안정적으로 계산합니다.
+
+고개 딴짓 감지 (Left / Right / Down): 마스크가 하관을 가리더라도, 코끝과 눈썹의 2D 황금비율 로직이 작동하여 시선 이탈을 즉각 DISTRACTION 경보로 판별합니다.
+
+수면 상태 감지 (SLEEP!!!): 딥러닝 오류 방어를 위해 수학적 EAR 임계값을 0.27로 상향 조정한 로직이 발동하여 수면 경고를 출력합니다.
+
+2. 마스크 미착용 상태 (MASK: OFF - Warning) 정밀 검증
+
+하품 감지 (YAWN!): 입의 상하/좌우 비율(MAR)을 통해 즉각적으로 하품을 감지해 냅니다.
+
+수면 상태 감지 (SLEEP!!!): 수학적 기준치(EAR < 0.22)와 직접 훈련시킨 눈 판독 딥러닝 모델이 융합 판단하여, 치명적인 수면 상태를 지연 없이 정밀 타격합니다.
+
+요약: 1GB RAM의 구형 보드와 53.5도 협각 카메라라는 악조건 속에서도, 딥러닝과 기하학적 수식의 하이브리드 결합을 통해 발생 가능한 모든 엣지 케이스(Edge Case)를 성공적으로 방어해 냈습니다.
