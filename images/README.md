@@ -57,13 +57,13 @@ WantedBy=multi-user.target
 
 ### 3.1. 시스템 전반 블록 도면 (Architecture Diagram)
 <div align="center">
-  <img src="images/라즈3DSM블록도면_2.jpg" width="100%" alt="System Architecture">
+  <img src="images/라즈3DSM블록도면.png" width="100%" alt="System Architecture">
 </div>
 
 ### 3.2. 5단계 융합 데이터 파이프라인 흐름
 단일 딥러닝 모델의 한계를 극복하기 위해 영상 유입부터 최종 LCD 출력까지 딥러닝과 기하학적 수식이 톱니바퀴처럼 맞물려 돌아가는 하이브리드 병렬 연산을 수행합니다.
 <div align="center">
-  <img src="images/라즈3DSM파이프라인_2.jpg" width="100%" alt="Data Pipeline">
+  <img src="images/라즈3DSM파이프라인.png" width="100%" alt="Data Pipeline">
 </div>
 
 ---
